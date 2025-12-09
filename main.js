@@ -18,43 +18,37 @@ function getHumanChoice() {
     return ans || "rock" // Default choice
 };
 
-function getResult(human, computer) {
+function playRound(human, computer) {
     if (human == computer) {
-        return "Draw!";
-    };
-    if (human == "rock") {
+        console.log("Draw! Same Answer!");
+    } else if (human == "rock") {
         if (computer == "scissors") {
-            return "Win";
+            console.log("You Won! Rock beats Scissors!");
         } else {
-            return "Lose";
+            console.log("You Lost! Paper beats Rock!");
         };
-    } 
-    if (human == "scissors") {
+    } else if (human == "scissors") {
         if (computer = "paper") {
-            return "Win";
+            console.log("You Won! Scissors beats Paper!");
         } else {
-            return "Lose";
+            console.log("You Lost! Rock beats Scissors!");
         };
     } else {
         if (computer == "rock") {
-            return "Win";
+            console.log("You Won! Paper beats Rock!");
         } else {
-            return "Lose";
+            console.log("You Lost! Scissors beats Paper!");
         };
     };
-};
-
-function playRound() {
-    let human = getHumanChoice();
-    console.log(human);
-    let computer = getComputerChoice();
-    console.log(computer);
-    console.log(getResult(human,computer));
 };
 
 function playGame() {
     while (rounds < 5) {
-        playRound();
+        let human = getHumanChoice();
+        console.log(`Human Choice: ${human}`);
+        let computer = getComputerChoice();
+        console.log(`Computer Choice: ${computer}\n`);
+        playRound(human, computer);
         rounds++;
     };
 };

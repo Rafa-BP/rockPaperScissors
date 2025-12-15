@@ -3,9 +3,13 @@
     padding: 0px;
 }
 
-.container {
+.container,
+.container-items {
     display: flex;
     justify-content: center;
+}
+
+.container-items {
     flex-direction: row;
 }
 
@@ -13,4 +17,12 @@
     width: 100px;
     height: 50px;
     margin: 10px;
+}
+
+.won {
+    color: greenyellow;
+}
+
+.lost {
+    color: red;
 }

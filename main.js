@@ -13,32 +13,38 @@ function getComputerChoice() {
     };
 };
 
+function displayResults(result) {
+    const resultText = document.getElementById("result");
+    resultText.textContent = result;
+    if (result === "won") {
+        resultText.style.color = "greenyellow";
+    } else if (result === "lost") {
+        resultText.style.color = "red";
+    } else {
+        resultText.style.color = "gray";
+    };
+};
+
 function playRound(human, computer) {
     if (human == computer) {
-        console.log("Draw! Same Answer!");
+        return displayResults("draw");
     } else if (human == "rock") {
         if (computer == "scissors") {
-            console.log("You Won! Rock beats Scissors!");
-            return;
+            return displayResults("won");
         } else {
-            console.log("You Lost! Paper beats Rock!");
-            return;
+            return displayResults("lost");
         };
     } else if (human == "scissors") {
         if (computer = "paper") {
-            console.log("You Won! Scissors beats Paper!");
-            return;
+            return displayResults("won");
         } else {
-            console.log("You Lost! Rock beats Scissors!");
-            return;
+            return displayResults("lost");
         };
     } else {
         if (computer == "rock") {
-            console.log("You Won! Paper beats Rock!");
-            return;
+            return displayResults("won");
         } else {
-            console.log("You Lost! Scissors beats Paper!");
-            return;
+            return displayResults("lost");
         };
     };
 };
@@ -47,12 +53,15 @@ document.addEventListener('click', e => {
     switch (e.target.id) {
         case "rock": {
             playRound("rock", getComputerChoice());
+            break;
         };
         case "paper": {
             playRound("paper", getComputerChoice());
+            break;
         };
         case "scissors": {
             playRound("scissors", getComputerChoice());
+            break;
         };
     };
 });

@@ -41,16 +41,3 @@ function playRound(human, computer) {
         };
     };
 };
-
-function playGame() {
-    while (rounds < 5) {
-        let human = getHumanChoice();
-        console.log(`Human Choice: ${human}`);
-        let computer = getComputerChoice();
-        console.log(`Computer Choice: ${computer}\n`);
-        playRound(human, computer);
-        rounds++;
-    };
-};
-
-playGame();
